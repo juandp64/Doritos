@@ -6,7 +6,7 @@ import Logo from '../img/DoritosLogo.png'; // Asegúrate de usar el nombre 'Logo
 export default function Login() {
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2>Iniciar sesión</h2>
       <form>
         <div className="logo-container">
           <img src={Logo} alt="Logo" className="login-logo" />
