@@ -39,50 +39,56 @@ export default function User() {
   };
 
   return (
-    <div className="user-container">
-      {/* Sección para ingresar el código */}
-      <div className="codigo-ingreso">
-        <h2>Registra tus códigos</h2>
-        <input
-          type="text"
-          value={codigo}
-          onChange={manejarCambioCodigo}
-          placeholder="Ingrese código de 3 dígitos"
-          maxLength={3}
-          className="form-control"
-        />
-        <button onClick={registrarCodigo} className="btn btn-primary mt-2">Registrar</button>
-        <div className="Volver-link mt-3">
-        <Link to="/" className="btn btn-link">Volver</Link>
-      </div>
+    <>
+      <div className='nav'>
+        <h2>Usuario</h2>
+        <div className="Volver-link">
+          <Link to="/" className="btn btn-link">Salir</Link>
+        </div>
       </div>
 
-      {/* Sección para mostrar los códigos ingresados en una tabla */}
-      <div className="codigos-registrados">
-        <h3>Códigos Registrados</h3>
-        {codigosIngresados.length > 0 ? (
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Fecha</th>
-                <th>Código</th>
-                <th>Premio</th>
-              </tr>
-            </thead>
-            <tbody>
-              {codigosIngresados.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.fecha}</td>
-                  <td>{item.codigo}</td>
-                  <td>{item.premio}</td>
+      <div className="user-container">
+        {/* Sección para ingresar el código */}
+        <div className="codigo-ingreso">
+          <input
+            type="text"
+            value={codigo}
+            onChange={manejarCambioCodigo}
+            placeholder="Ingrese tu código"
+            maxLength={3}
+            className="form-control"
+          />
+          <button onClick={registrarCodigo} className="btn btn-primary">Registrar</button>
+        </div>
+
+        {/* Sección para mostrar los códigos ingresados en una tabla */}
+        <div className="codigos-registrados">
+          <h4>Códigos Registrados</h4>
+          {codigosIngresados.length > 0 ? (
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Código</th>
+                  <th>Premio</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>No has ingresado ningún código aún.</p>
-        )}
+              </thead>
+              <tbody>
+                {codigosIngresados.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.fecha}</td>
+                    <td>{item.codigo}</td>
+                    <td>{item.premio}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p className='sin-info'>No has ingresado ningún código aún.</p>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
+

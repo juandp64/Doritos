@@ -5,7 +5,7 @@ import '../styles/register.css';
 export default function RegisterAdmin() {
   return (
     <div className="register-container">
-      <h2>Registro</h2>
+      <h2>Registro Administrador</h2>
       <form>
         <div className="mb-3">
           <input type="email" className="form-control" id="correo" placeholder="Correo" />
